@@ -1,10 +1,8 @@
 '''
 [+] Count the number of times the digit k appears in all non-negative integers less than or equal to a given integer n.
 
-ex: n=12, k=2 --> 2 [ 2 si 12 ]
-
-unde e:
-https://www.codingame.com/training/easy/number-of-digits
+ex: n=12, k=2 --> answer: 2
+    [ once in 2 + once in 12, zero times in all other n from 1 to 12 ]
 
 '''
 
@@ -55,7 +53,7 @@ def foo4(n=124, k=1):
                 return acc[nl]
             td = nl[0]  # top-digit, td != 0
             n10 = eval('1' + '0'*(len(nl)-1)) # [5, 0, 2, 7] --> p10 = [1, 0, 0, 0]
-            p99 = tuple([9]*(len(nl)-1))       # ...          --> p99 =    [9, 9, 9]
+            p99 = tuple([9]*(len(nl)-1))       # ...         --> p99 =    [9, 9, 9]
             rnl = red(nl[1:])           # what's left after split: 5000 + 27
             acc[p99] = cnt(p99, k) # never compute
             acc[rnl] = cnt(rnl, k) # these again!!!
@@ -73,3 +71,4 @@ def show4(n=7593824, k=3):
 
 # --> run a crazy-large number:
 show4(1234567891011121314151617181920, k=3)   # --> 0.0009s ... awesome!
+
